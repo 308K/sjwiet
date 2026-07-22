@@ -20,6 +20,7 @@ import {
   CircleAlert,
   Maximize2,
   X,
+  Monitor,
 } from 'lucide-react'
 
 export const Icon = {
@@ -44,4 +45,5 @@ export const Icon = {
   alert: CircleAlert,
   maximize: Maximize2,
   x: X,
+  monitor: Monitor,
 }

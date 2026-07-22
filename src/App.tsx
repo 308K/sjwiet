@@ -43,7 +43,12 @@ export default function App() {
   const [history, setHistory] = useState<AcousticSnapshot[]>([])
   const [targets, setTargets] = useState<TargetConfig>(DEFAULT_TARGETS)
   const [fileInfo, setFileInfo] = useState<{ name: string; analysis: ReturnType<typeof Object> | null } | null>(null)
-  const [dark, setDark] = useState(false)
+  // Theme: follow the OS by default, with a manual override toggle
+  type ThemeMode = 'system' | 'light' | 'dark'
+  const [theme, setTheme] = useState<ThemeMode>('system')
+  const [systemDark, setSystemDark] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches,
+  )
   const [dragging, setDragging] = useState(false)
   const [fullscreen, setFullscreen] = useState(false)
   const [overlays, setOverlays] = useState<SpectrumOverlays>({
@@ -81,9 +86,24 @@ export default function App() {
   }, [])
 
   // ── Theme ───────────────────────────────────────────────────
+  // Live-track the OS color-scheme preference
   useEffect(() => {
-    document.documentElement.classList.toggle('dark', dark)
-  }, [dark])
+    const mq = window.matchMedia('(prefers-color-scheme: dark)')
+    const onChange = (e: MediaQueryListEvent) => setSystemDark(e.matches)
+    mq.addEventListener('change', onChange)
+    return () => mq.removeEventListener('change', onChange)
+  }, [])
+
+  // Resolve the active theme and apply the `.dark` class
+  const isDark = theme === 'system' ? systemDark : theme === 'dark'
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', isDark)
+  }, [isDark])
+
+  // Cycle: system → light → dark → system
+  const cycleTheme = useCallback(() => {
+    setTheme((m) => (m === 'system' ? 'light' : m === 'light' ? 'dark' : 'system'))
+  }, [])
 
   // ── Analysis loop (rAF-throttled, ~10 Hz praat calls) ───────
   const lastPraatRef = useRef(0)
@@ -218,12 +238,12 @@ export default function App() {
           </span>
           <button
             type="button"
-            className={`icon-btn ${dark ? 'icon-btn--active' : ''}`}
-            onClick={() => setDark((v) => !v)}
+            className={`icon-btn ${theme !== 'system' ? 'icon-btn--active' : ''}`}
+            onClick={cycleTheme}
             aria-label={t('actions.toggleTheme')}
             title={t('actions.toggleTheme')}
           >
-            {dark ? <Icon.sun size={18} /> : <Icon.moon size={18} />}
+            {theme === 'system' ? <Icon.monitor size={18} /> : isDark ? <Icon.moon size={18} /> : <Icon.sun size={18} />}
           </button>
           <LanguageMenu />
         </div>
