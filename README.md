@@ -1,5 +1,12 @@
 # Sjwiet
 
+[![License: MPL-2.0](https://img.shields.io/github/license/308K/sjwiet?style=flat)](https://www.mozilla.org/MPL/2.0/)
+[![Build](https://github.com/308K/sjwiet/actions/workflows/ci.yml/badge.svg)](https://github.com/308K/sjwiet/actions/workflows/ci.yml)
+[![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)](https://vite.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-6-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Deployed on Cloudflare Pages](https://img.shields.io/badge/Deployed%20on-Cloudflare%20Pages-F38020?logo=cloudflare&logoColor=white)](https://pages.cloudflare.com/)
+
 实时时频谱、音高（基频）、共振峰（Formant）与音强分析的浏览器端声音训练工具，帮助你在练习发声、塑形声音时「看见」自己的声学参数。所有音频都在本地处理，**不会上传到任何服务器**。
 
 > Real-time spectrogram, pitch, formant and intensity analysis to help you hear and shape your voice with intention. Everything runs locally — your audio never leaves your device.
@@ -129,6 +136,23 @@ Cross-Origin-Embedder-Policy: require-corp
 - 如前所述，麦克风功能需要 HTTPS 或 localhost 安全上下文。
 
 ---
+
+## 部署到 Cloudflare Pages
+
+推荐用 Cloudflare Pages 的「连接 Git 仓库」方式，零配置自动构建与部署：
+
+1. 登录 Cloudflare 控制台 → **Workers & Pages** → **Create** → **Pages** → **Connect to Git**。
+2. 选择本仓库（如 `308K/sjwiet`），框架预设选 **None**（Vite 不在预设列表里，手动填写即可）。
+3. 构建配置：
+   - **Build command**：`npm install && npm run build`（若构建镜像已带 Bun，也可写 `bun install && bun run build`）
+   - **Build output directory**：`dist`
+   - **Node.js version**：20（或 22）
+4. 保存并部署。之后每次推送到 `main` 都会自动重新构建。
+5. （可选）在 **Custom domains** 绑定自己的域名；默认会分配 `*.pages.dev` 子域，已满足麦克风所需的 HTTPS 安全上下文。
+
+跨源隔离响应头：本仓库已在 `public/_headers` 中声明 COOP/COEP（构建后位于 `dist/_headers`），Cloudflare Pages 会自动应用，确保 `praat.wasm` 正常加载。若需在仪表盘覆盖，可在 **Settings → Headers** 或用 Transform Rules 下发相同的两个头。
+
+> 注意：`Cross-Origin-Embedder-Policy: require-corp` 会要求所有跨源子资源（如 Google Fonts 的字体文件）本身携带 `Cross-Origin-Resource-Policy` / CORS 头，否则会被拦截、回退到系统字体。若字体显示异常，建议将字体自托管到本项目内。本项目为纯静态站点，无需 Functions，也无需设置环境变量。
 
 ## 设计系统（Khej UI）
 
