@@ -1,0 +1,116 @@
+/* ═══════════════════════════════════════════════════════════════
+   components.css — Design System Component Definitions
+   Auto-extracted from preview/component-*.html
+   DO NOT EDIT MANUALLY — regenerate via extract-components-css.mjs
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Button ────────────────────────────────────────────────── */
+/* @anatomy
+   <span class="label">主要</span> <button class="btn btn-primary btn-sm" data-evidence-sample="primary-sm">确认</button> <button class="btn btn-primary btn-md" data-evidence-sample="primary-md">确认</button> <button class="btn btn-primary btn-lg" data-evidence-sample="primary-lg">确认</button>
+*/
+.btn { display: inline-flex; align-items: center; justify-content: center; border: none; cursor: pointer; font-family: var(--font-body); font-size: var(--font-size-body); font-weight: 500; white-space: nowrap; flex-shrink: 0; transition: background .15s, border-color .15s, box-shadow .15s; }
+    .btn:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+    .btn:disabled { opacity: .45; cursor: not-allowed; pointer-events: none; }
+    .btn-primary { background: var(--color-primary); color: var(--color-on-primary); border-radius: var(--radius-sm); }
+    .btn-primary:hover { background: var(--color-primary-hover); }
+    .btn-secondary { background: var(--color-surface-container); color: var(--color-on-surface); border-radius: var(--radius-sm); }
+    .btn-secondary:hover { background: var(--color-surface-container-high); }
+    .btn-ghost { background: transparent; color: var(--color-foreground); border-radius: var(--radius-sm); }
+    .btn-ghost:hover { background: var(--color-surface-container-high); }
+    .btn-stamp { background: var(--color-primary); color: var(--color-on-primary); border-radius: var(--radius-pill); border: 2px solid var(--color-primary); }
+    .btn-stamp:hover { background: var(--color-primary-hover); border-color: var(--color-primary-hover); }
+    .btn-sm { height: var(--size-button-sm); padding: var(--space-1) var(--space-3); font-size: var(--font-size-caption); min-width: var(--size-button-sm); }
+    .btn-md { height: var(--size-button-md); padding: var(--space-2) var(--space-4); min-width: var(--size-button-md); }
+    .btn-lg { height: var(--size-button-lg); padding: var(--space-3) var(--space-5); font-size: var(--font-size-lead); min-width: var(--size-button-lg); }
+
+/* ── Card ──────────────────────────────────────────────────── */
+/* @anatomy
+   <span class="label">提升卡片</span>
+*/
+.card { width: 100%; border-radius: var(--radius-md); overflow: hidden; transition: filter .15s; }
+.card:hover { filter: brightness(0.97); }
+.card.elevated { background: var(--color-card); box-shadow: var(--shadow-2); }
+.card.outlined { background: transparent; border: 1px solid var(--color-outline-variant); }
+.card.parchment { background: var(--color-surface); box-shadow: var(--shadow-1); }
+.card-header { padding: var(--space-4) var(--space-4) var(--space-2); border-bottom: 1px solid var(--color-outline-variant); }
+.card-body { padding: 0 var(--space-4) var(--space-4); }
+.card.compact .card-header, .card.compact .card-body { padding: var(--space-2) var(--space-3); }
+.card-footer { padding: var(--space-2) var(--space-4); border-top: 1px solid var(--color-outline-variant); }
+.card-title { font-family: var(--font-heading); font-size: var(--font-size-h4); font-weight: var(--font-weight-h4); line-height: var(--line-height-h4); color: var(--color-on-surface); margin: 0; }
+.card-body p { margin: 0; font-size: var(--font-size-body); line-height: var(--line-height-body); color: var(--color-on-surface-variant); }
+
+/* ── Input ─────────────────────────────────────────────────── */
+/* @anatomy
+   <span class="label">下划线</span> <div class="input-group input-underlined" data-evidence-sample="underlined-default"> <label for="u1">用户名</label> <input id="u1" class="input-field" type="text" placeholder="请输入用户名" /> <span class="helper">6-20个字符</span>
+*/
+.input-group { display: flex; flex-direction: column; gap: var(--space-1); min-width: 180px; flex: 1; max-width: 320px; min-width: 0; }
+.input-group label { font-size: var(--font-size-caption); color: var(--color-muted-foreground); white-space: nowrap; }
+.input-field { height: var(--size-input-height); width: 100%; border: none; outline: none; font-family: var(--font-family-base); font-size: var(--font-size-body); color: var(--color-on-surface); background: transparent; transition: border-color .15s, box-shadow .15s, background .15s; }
+.input-field::placeholder { color: var(--color-muted-foreground); }
+.input-group .helper { font-size: var(--font-size-caption); color: var(--color-muted-foreground); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.input-underlined .input-field { border-bottom: 1px solid var(--color-outline-variant); border-radius: 0; padding: 0 var(--space-2); }
+.input-underlined .input-field:hover { border-bottom-color: var(--color-outline); }
+.input-underlined .input-field:focus { border-bottom: 2px solid var(--color-primary); }
+.input-filled .input-field { background: var(--color-surface-container-low); border-radius: var(--radius-sm); padding: 0 var(--space-3); }
+.input-filled .input-field:hover { background: var(--color-surface-container); }
+.input-filled .input-field:focus { box-shadow: inset 0 0 0 1px var(--color-primary); }
+.input-group.error label, .input-group.error .helper { color: var(--color-error); }
+.input-underlined.error .input-field { border-bottom-color: var(--color-error); }
+.input-underlined.error .input-field:focus { border-bottom: 2px solid var(--color-error); }
+.input-filled.error .input-field { box-shadow: inset 0 0 0 1px var(--color-error); }
+.input-filled.error .input-field:focus { box-shadow: inset 0 0 0 2px var(--color-error); }
+
+/* ── Modal ─────────────────────────────────────────────────── */
+/* @anatomy
+   <div class="modal-demo"> <div class="modal-backdrop backdrop-dialog">
+*/
+.modal-demo { position: relative; width: 100%; height: 260px; border-radius: var(--radius-md); overflow: hidden; background: var(--color-surface-dim); }
+  .modal-backdrop { position: absolute; inset: 0; }
+  .modal-backdrop.backdrop-dialog { background: rgba(43,43,43,0.6); }
+  .modal-backdrop.backdrop-scroll { background: rgba(43,43,43,0.7); }
+  .modal { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 340px; display: flex; flex-direction: column; background: var(--color-card); color: var(--color-on-surface); border-radius: var(--radius-md); box-shadow: var(--shadow-4); }
+  .modal.wide { width: 88%; max-width: 460px; max-height: 210px; border-radius: var(--radius-lg); box-shadow: var(--shadow-5); background: var(--color-surface); }
+  .modal-header { display: flex; align-items: center; justify-content: space-between; padding: var(--space-4) var(--space-5) var(--space-2); flex-shrink: 0; }
+  .modal-title { font-family: var(--font-heading); font-size: var(--font-size-h4); font-weight: var(--font-weight-h4); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+  .modal-close { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border: none; background: transparent; cursor: pointer; color: var(--color-on-surface-variant); border-radius: var(--radius-sm); flex-shrink: 0; transition: background .15s; }
+  .modal-close:hover { background: var(--color-surface-container-high); }
+  .modal-body { padding: 0 var(--space-5) var(--space-4); font-size: var(--font-size-body); line-height: var(--line-height-body); color: var(--color-on-surface); overflow-y: auto; flex: 1; min-width: 0; }
+  .modal-footer { display: flex; justify-content: flex-end; gap: var(--space-2); padding: var(--space-3) var(--space-5); border-top: 1px solid var(--color-outline-variant); flex-shrink: 0; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; border: none; cursor: pointer; font-family: var(--font-family-base); font-size: var(--font-size-body); font-weight: var(--font-weight-body); white-space: nowrap; min-width: var(--size-button-sm); height: var(--size-button-sm); padding: 0 var(--space-4); border-radius: var(--radius-md); transition: background .15s, border-color .15s; flex-shrink: 0; }
+  .btn-ghost { background: transparent; color: var(--color-on-surface-variant); border: 1px solid var(--color-outline); }
+  .btn-ghost:hover { background: var(--color-surface-container-high); }
+  .btn-primary { background: var(--color-primary); color: var(--color-on-primary); }
+  .btn-primary:hover { background: var(--color-primary-hover); }
+
+/* ── Navigation ────────────────────────────────────────────── */
+/* @anatomy
+   <span class="label">Vertical Tab</span> <nav class="nav-v"> <a class="nav-v-item active">概述</a> <a class="nav-v-item">参数</a> <a class="nav-v-item">示例</a> <a class="nav-v-item">变更记录</a> </nav>
+*/
+/* Component definitions — extracted to components.css */
+  .nav-v { display: flex; flex-direction: column; flex: 1; min-width: 0; background: var(--color-surface); }
+  .nav-v-item { position: relative; display: flex; align-items: center; justify-content: flex-end; padding: var(--space-2) var(--space-4); font-size: var(--font-size-body); color: var(--color-on-surface-variant); cursor: pointer; border: none; background: none; transition: color .15s, background .15s; white-space: nowrap; min-height: var(--size-button-sm); min-width: var(--size-button-sm); }
+  .nav-v-item:hover { color: var(--color-primary); background: var(--color-surface-container-low); }
+  .nav-v-item.active { color: var(--color-primary); }
+  .nav-v-item.active::after { content: ''; position: absolute; right: 0; top: 4px; bottom: 4px; width: 2px; background: var(--color-primary); }
+
+  .nav-h { display: flex; align-items: center; flex: 1; min-width: 0; border-bottom: 1px solid var(--color-outline-variant); background: var(--color-surface); overflow-x: auto; }
+  .nav-h-item { position: relative; display: flex; align-items: center; padding: var(--space-2) var(--space-4); font-size: var(--font-size-body); color: var(--color-on-surface-variant); cursor: pointer; border: none; background: none; transition: color .15s; white-space: nowrap; min-height: var(--size-button-sm); min-width: var(--size-button-sm); }
+  .nav-h-item:hover { color: var(--color-primary); }
+  .nav-h-item.active { color: var(--color-primary); }
+  .nav-h-item.active::after { content: ''; position: absolute; bottom: 0; left: var(--space-2); right: var(--space-2); height: 2px; background: var(--color-primary); }
+
+/* ── Tag ───────────────────────────────────────────────────── */
+/* @anatomy
+   <span class="label">默认轮廓</span> <span class="tag tag-sm tag-default" data-evidence-sample="default-sm">设计方案</span> <span class="tag tag-sm tag-default" data-evidence-sample="default-sm">待审核</span> <span class="tag tag-sm tag-default" data-evidence-sample="default-sm">草稿</span>
+*/
+/* Component definitions — extracted to components.css by deterministic script */
+  .tag { display: inline-flex; align-items: center; gap: 4px; border-radius: var(--radius-sm); white-space: nowrap; font-family: var(--font-family-base); font-weight: 500; line-height: 1; flex-shrink: 0; transition: background .15s, border-color .15s; cursor: default; }
+  .tag-sm { height: 22px; min-width: 22px; padding: 3px 8px; font-size: 11px; }
+  .tag-md { height: 28px; min-width: 28px; padding: 5px 12px; font-size: 13px; }
+  .tag-default { background: transparent; color: var(--color-on-surface-variant); border: 1px solid var(--color-outline-variant); }
+  .tag-default:hover { background: var(--color-surface-container-high); border-color: var(--color-outline); }
+  .tag-seal { background: var(--color-primary); color: var(--color-on-primary); border: 1px solid var(--color-primary); }
+  .tag-seal:hover { filter: brightness(1.08); }
+  .tag-accent { background: var(--link); color: var(--color-on-primary); border: 1px solid transparent; }
+  .tag-accent:hover { filter: brightness(1.08); }
+  .tag-disabled { opacity: .45; pointer-events: none; cursor: not-allowed; }

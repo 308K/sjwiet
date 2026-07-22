@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Button - Khej UI</title>
+  <link rel="stylesheet" href="../colors_and_type.css">
+  <style>
+    body { margin: 0; padding: var(--space-3); background: var(--color-surface); font-family: var(--font-body); color: var(--color-on-surface); }
+    .row { display: flex; gap: var(--space-2); align-items: center; margin-bottom: var(--space-2); flex-wrap: wrap; }
+    .label { font-size: var(--font-size-caption); font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-muted-foreground); width: 92px; flex-shrink: 0; }
+    .divider { border: none; border-top: 1px solid var(--color-outline); margin: var(--space-2) 0; }
+
+    /* @component-css-start */
+    .btn { display: inline-flex; align-items: center; justify-content: center; border: none; cursor: pointer; font-family: var(--font-body); font-size: var(--font-size-body); font-weight: 500; white-space: nowrap; flex-shrink: 0; transition: background .15s, border-color .15s, box-shadow .15s; }
+    .btn:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+    .btn:disabled { opacity: .45; cursor: not-allowed; pointer-events: none; }
+    .btn-primary { background: var(--color-primary); color: var(--color-on-primary); border-radius: var(--radius-sm); }
+    .btn-primary:hover { background: var(--color-primary-hover); }
+    .btn-secondary { background: var(--color-surface-container); color: var(--color-on-surface); border-radius: var(--radius-sm); }
+    .btn-secondary:hover { background: var(--color-surface-container-high); }
+    .btn-ghost { background: transparent; color: var(--color-foreground); border-radius: var(--radius-sm); }
+    .btn-ghost:hover { background: var(--color-surface-container-high); }
+    .btn-stamp { background: var(--color-primary); color: var(--color-on-primary); border-radius: var(--radius-pill); border: 2px solid var(--color-primary); }
+    .btn-stamp:hover { background: var(--color-primary-hover); border-color: var(--color-primary-hover); }
+    .btn-sm { height: var(--size-button-sm); padding: var(--space-1) var(--space-3); font-size: var(--font-size-caption); min-width: var(--size-button-sm); }
+    .btn-md { height: var(--size-button-md); padding: var(--space-2) var(--space-4); min-width: var(--size-button-md); }
+    .btn-lg { height: var(--size-button-lg); padding: var(--space-3) var(--space-5); font-size: var(--font-size-lead); min-width: var(--size-button-lg); }
+    /* @component-css-end */
+  </style>
+</head>
+<body>
+  <div class="row">
+    <span class="label">主要</span>
+    <button class="btn btn-primary btn-sm" data-evidence-sample="primary-sm">确认</button>
+    <button class="btn btn-primary btn-md" data-evidence-sample="primary-md">确认</button>
+    <button class="btn btn-primary btn-lg" data-evidence-sample="primary-lg">确认</button>
+  </div>
+  <div class="row">
+    <span class="label">次要</span>
+    <button class="btn btn-secondary btn-sm" data-evidence-sample="secondary-sm">取消</button>
+    <button class="btn btn-secondary btn-md" data-evidence-sample="secondary-md">取消</button>
+    <button class="btn btn-secondary btn-lg" data-evidence-sample="secondary-lg">取消</button>
+  </div>
+  <hr class="divider">
+  <div class="row">
+    <span class="label">文字</span>
+    <button class="btn btn-ghost btn-sm" data-evidence-sample="ghost-sm">了解更多</button>
+    <button class="btn btn-ghost btn-md" data-evidence-sample="ghost-md">了解更多</button>
+    <button class="btn btn-ghost btn-lg" data-evidence-sample="ghost-lg">了解更多</button>
+  </div>
+  <div class="row">
+    <span class="label">钤印</span>
+    <button class="btn btn-stamp btn-sm" data-evidence-sample="stamp-sm">钤印</button>
+    <button class="btn btn-stamp btn-md" data-evidence-sample="stamp-md">钤印</button>
+    <button class="btn btn-stamp btn-lg" data-evidence-sample="stamp-lg">钤印</button>
+  </div>
+  <div class="row">
+    <span class="label">禁用</span>
+    <button class="btn btn-primary btn-md" disabled data-evidence-sample="primary-md-disabled">确认</button>
+    <button class="btn btn-secondary btn-md" disabled data-evidence-sample="secondary-md-disabled">取消</button>
+    <button class="btn btn-ghost btn-md" disabled data-evidence-sample="ghost-md-disabled">了解更多</button>
+  </div>
+</body>
+</html>

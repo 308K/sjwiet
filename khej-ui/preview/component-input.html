@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Input - Khej UI</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+body { margin: 0; padding: var(--space-3); background: var(--color-surface); font-family: var(--font-family-base); color: var(--color-on-surface); }
+.row { display: flex; gap: var(--space-4); align-items: flex-start; margin-bottom: var(--space-2); flex-wrap: wrap; }
+.label { width: 92px; font-size: var(--font-size-caption); color: var(--color-muted-foreground); text-transform: uppercase; letter-spacing: 0.05em; padding-top: var(--space-1); flex-shrink: 0; }
+.divider { border: none; border-top: 1px solid var(--color-outline-variant); margin: var(--space-3) 0; }
+/* @component-css-start */
+.input-group { display: flex; flex-direction: column; gap: var(--space-1); min-width: 180px; flex: 1; max-width: 320px; min-width: 0; }
+.input-group label { font-size: var(--font-size-caption); color: var(--color-muted-foreground); white-space: nowrap; }
+.input-field { height: var(--size-input-height); width: 100%; border: none; outline: none; font-family: var(--font-family-base); font-size: var(--font-size-body); color: var(--color-on-surface); background: transparent; transition: border-color .15s, box-shadow .15s, background .15s; }
+.input-field::placeholder { color: var(--color-muted-foreground); }
+.input-group .helper { font-size: var(--font-size-caption); color: var(--color-muted-foreground); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.input-underlined .input-field { border-bottom: 1px solid var(--color-outline-variant); border-radius: 0; padding: 0 var(--space-2); }
+.input-underlined .input-field:hover { border-bottom-color: var(--color-outline); }
+.input-underlined .input-field:focus { border-bottom: 2px solid var(--color-primary); }
+.input-filled .input-field { background: var(--color-surface-container-low); border-radius: var(--radius-sm); padding: 0 var(--space-3); }
+.input-filled .input-field:hover { background: var(--color-surface-container); }
+.input-filled .input-field:focus { box-shadow: inset 0 0 0 1px var(--color-primary); }
+.input-group.error label, .input-group.error .helper { color: var(--color-error); }
+.input-underlined.error .input-field { border-bottom-color: var(--color-error); }
+.input-underlined.error .input-field:focus { border-bottom: 2px solid var(--color-error); }
+.input-filled.error .input-field { box-shadow: inset 0 0 0 1px var(--color-error); }
+.input-filled.error .input-field:focus { box-shadow: inset 0 0 0 2px var(--color-error); }
+/* @component-css-end */
+</style>
+</head>
+<body>
+  <div class="row">
+    <span class="label">下划线</span>
+    <div class="input-group input-underlined" data-evidence-sample="underlined-default">
+      <label for="u1">用户名</label>
+      <input id="u1" class="input-field" type="text" placeholder="请输入用户名" />
+      <span class="helper">6-20个字符</span>
+    </div>
+    <div class="input-group input-underlined" data-evidence-sample="underlined-focus">
+      <label for="u2">手机号码</label>
+      <input id="u2" class="input-field" type="text" value="138****5678" />
+      <span class="helper">用于账户安全验证</span>
+    </div>
+  </div>
+  <div class="row">
+    <span class="label">填充</span>
+    <div class="input-group input-filled" data-evidence-sample="filled-default">
+      <label for="f1">邮箱地址</label>
+      <input id="f1" class="input-field" type="text" placeholder="请输入邮箱" />
+      <span class="helper">用于接收通知</span>
+    </div>
+    <div class="input-group input-filled">
+      <label for="f2">所在城市</label>
+      <input id="f2" class="input-field" type="text" value="上海" />
+      <span class="helper">当前定位城市</span>
+    </div>
+  </div>
+  <hr class="divider">
+  <div class="row">
+    <span class="label">错误状态</span>
+    <div class="input-group input-underlined error">
+      <label for="e1">密码</label>
+      <input id="e1" class="input-field" type="password" value="123" />
+      <span class="helper">密码长度不足，至少需要8位</span>
+    </div>
+    <div class="input-group input-filled error">
+      <label for="e2">确认邮箱</label>
+      <input id="e2" class="input-field" type="text" value="invalid" />
+      <span class="helper">请输入有效的邮箱地址</span>
+    </div>
+  </div>
+</body>
+</html>

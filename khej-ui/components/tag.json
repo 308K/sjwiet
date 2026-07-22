@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 2,
+  "name": "Tag",
+  "category": "display",
+  "sourceKind": "from-scratch",
+  "confidence": "medium",
+  "variantCount": 3,
+  "semanticTypeCandidates": [
+    {
+      "type": "Tag/Badge",
+      "evidence": "small label or seal element"
+    }
+  ],
+  "variantDimensions": [
+    {
+      "name": "variant",
+      "values": [
+        "default",
+        "seal",
+        "accent"
+      ]
+    },
+    {
+      "name": "size",
+      "values": [
+        "sm",
+        "md"
+      ]
+    }
+  ],
+  "representativeVariants": [
+    {
+      "id": "seal-md",
+      "whySelected": "Seal/stamp tag evoking 钤印",
+      "traits": {
+        "variant": "seal",
+        "size": "md"
+      },
+      "childrenDigest": [
+        "label text"
+      ],
+      "visualSpecs": {
+        "bg": "var(--color-primary)",
+        "fg": "var(--color-on-primary)",
+        "radius": "var(--radius-sm)",
+        "border": "1px solid var(--color-primary)"
+      }
+    },
+    {
+      "id": "default-sm",
+      "whySelected": "Minimal outlined tag",
+      "traits": {
+        "variant": "default",
+        "size": "sm"
+      },
+      "childrenDigest": [
+        "label text"
+      ],
+      "visualSpecs": {
+        "bg": "transparent",
+        "fg": "var(--color-on-surface-variant)",
+        "radius": "var(--radius-sm)",
+        "border": "1px solid var(--color-outline-variant)"
+      }
+    },
+    {
+      "id": "accent-md",
+      "whySelected": "Indigo accent tag",
+      "traits": {
+        "variant": "accent",
+        "size": "md"
+      },
+      "childrenDigest": [
+        "label text"
+      ],
+      "visualSpecs": {
+        "bg": "var(--color-accent)",
+        "fg": "var(--color-on-primary)",
+        "radius": "var(--radius-sm)"
+      }
+    }
+  ],
+  "anatomy": [
+    "label"
+  ],
+  "structurePatterns": [
+    "inline",
+    "stacked"
+  ],
+  "usageHints": {
+    "priorityHint": "medium",
+    "context": "labels, categories, status indicators, seal stamps"
+  },
+  "doNotInvent": [
+    "dismissible tag",
+    "tag with icon",
+    "tag group"
+  ],
+  "unknowns": [],
+  "keyInsightSeed": "Square seal-stamp tag as the brand's most recognizable micro-element",
+  "slug": "tag"
+}

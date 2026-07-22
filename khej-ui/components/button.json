@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 2,
+  "name": "Button",
+  "category": "interactive",
+  "sourceKind": "from-scratch",
+  "confidence": "medium",
+  "variantCount": 4,
+  "semanticTypeCandidates": [
+    {
+      "type": "Button",
+      "evidence": "standard clickable action trigger"
+    }
+  ],
+  "variantDimensions": [
+    {
+      "name": "variant",
+      "values": [
+        "primary",
+        "secondary",
+        "ghost",
+        "stamp"
+      ]
+    },
+    {
+      "name": "size",
+      "values": [
+        "sm",
+        "md",
+        "lg"
+      ]
+    }
+  ],
+  "representativeVariants": [
+    {
+      "id": "primary-md",
+      "whySelected": "Core CTA with vermillion primary",
+      "traits": {
+        "variant": "primary",
+        "size": "md"
+      },
+      "childrenDigest": [
+        "label text"
+      ],
+      "visualSpecs": {
+        "text": "确认",
+        "bg": "var(--color-primary)",
+        "fg": "var(--color-on-primary)",
+        "radius": "var(--radius-sm)"
+      }
+    },
+    {
+      "id": "secondary-md",
+      "whySelected": "Secondary action with stone-green",
+      "traits": {
+        "variant": "secondary",
+        "size": "md"
+      },
+      "childrenDigest": [
+        "label text"
+      ],
+      "visualSpecs": {
+        "text": "取消",
+        "bg": "var(--color-surface-container)",
+        "fg": "var(--color-on-surface)",
+        "radius": "var(--radius-sm)"
+      }
+    },
+    {
+      "id": "ghost-md",
+      "whySelected": "Minimal text-only, restraint principle",
+      "traits": {
+        "variant": "ghost",
+        "size": "md"
+      },
+      "childrenDigest": [
+        "label text"
+      ],
+      "visualSpecs": {
+        "text": "了解更多",
+        "bg": "transparent",
+        "fg": "var(--color-foreground)",
+        "radius": "var(--radius-sm)"
+      }
+    },
+    {
+      "id": "stamp-lg",
+      "whySelected": "Seal/stamp button evoking traditional aesthetics",
+      "traits": {
+        "variant": "stamp",
+        "size": "lg"
+      },
+      "childrenDigest": [
+        "label text"
+      ],
+      "visualSpecs": {
+        "text": "钤印",
+        "bg": "var(--color-primary)",
+        "fg": "var(--color-on-primary)",
+        "radius": "var(--radius-pill)",
+        "border": "2px solid var(--color-primary)"
+      }
+    }
+  ],
+  "anatomy": [
+    "label"
+  ],
+  "structurePatterns": [
+    "single-line",
+    "block"
+  ],
+  "usageHints": {
+    "priorityHint": "high",
+    "context": "forms, CTAs, navigation triggers"
+  },
+  "doNotInvent": [
+    "icon buttons",
+    "button groups",
+    "floating action buttons"
+  ],
+  "unknowns": [],
+  "keyInsightSeed": "Vermillion seal-stamp button as brand signature interaction",
+  "slug": "button"
+}

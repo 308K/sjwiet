@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap');
+
+/* @group-priority: primary, accent, secondary, success, error */
+
+:root {
+  /* === Brand Color Scales === */
+
+  /* primary */
+  --khej-primary-50: #FDF2F2; /* AI-generated */
+  --khej-primary-100: #F9DEDE; /* AI-generated */
+  --khej-primary-200: #F0B8B8; /* AI-generated */
+  --khej-primary-300: #E48888; /* AI-generated */
+  --khej-primary-400: #D45A5A; /* AI-generated */
+  --khej-primary-500: #C53D43; /* AI-generated */ /* @primary */
+  --khej-primary-600: #A83035; /* AI-generated */
+  --khej-primary-700: #8A2428; /* AI-generated */
+  --khej-primary-800: #6D1B1E; /* AI-generated */
+  --khej-primary-900: #4A1215; /* AI-generated */
+
+  /* accent */
+  --khej-accent-50: #EEF2FA; /* AI-generated */
+  --khej-accent-100: #D5DFF3; /* AI-generated */
+  --khej-accent-200: #ADC1E8; /* AI-generated */
+  --khej-accent-300: #7F9BD9; /* AI-generated */
+  --khej-accent-400: #5679C7; /* AI-generated */
+  --khej-accent-500: #3457A5; /* AI-generated */ /* @primary */
+  --khej-accent-600: #2A4689; /* AI-generated */
+  --khej-accent-700: #21366C; /* AI-generated */
+  --khej-accent-800: #192A52; /* AI-generated */
+  --khej-accent-900: #111D3A; /* AI-generated */
+
+  /* secondary */
+  --khej-secondary-50: #EEF5F2; /* AI-generated */
+  --khej-secondary-100: #D1E5DD; /* AI-generated */
+  --khej-secondary-200: #A7CDBB; /* AI-generated */
+  --khej-secondary-300: #7AB29A; /* AI-generated */
+  --khej-secondary-400: #589A7E; /* AI-generated */
+  --khej-secondary-500: #4A7C6F; /* AI-generated */ /* @primary */
+  --khej-secondary-600: #3D665A; /* AI-generated */
+  --khej-secondary-700: #31504A; /* AI-generated */
+  --khej-secondary-800: #263C3A; /* AI-generated */
+  --khej-secondary-900: #1A2A2A; /* AI-generated */
+
+  /* surface */
+  --khej-surface-50: #FAFAF7; /* AI-generated */
+  --khej-surface-100: #F5F4F0; /* AI-generated */ /* @primary */
+  --khej-surface-200: #EAE8E0; /* AI-generated */
+  --khej-surface-300: #D8D4C8; /* AI-generated */
+  --khej-surface-400: #C0BAA8; /* AI-generated */
+  --khej-surface-500: #A8A08E; /* AI-generated */
+  --khej-surface-600: #8A8272; /* AI-generated */
+  --khej-surface-700: #6C6558; /* AI-generated */
+  --khej-surface-800: #504A40; /* AI-generated */
+  --khej-surface-900: #35322C; /* AI-generated */
+
+  /* neutral */
+  --khej-neutral-50: #FCFCFA; /* AI-generated */
+  --khej-neutral-100: #F7F6F2; /* AI-generated */
+  --khej-neutral-200: #ECEAE3; /* AI-generated */
+  --khej-neutral-300: #DAD6CC; /* AI-generated */
+  --khej-neutral-400: #C2BBAD; /* AI-generated */
+  --khej-neutral-500: #A09888; /* AI-generated */ /* @primary */
+  --khej-neutral-600: #7E7670; /* AI-generated */
+  --khej-neutral-700: #605B56; /* AI-generated */
+  --khej-neutral-800: #44413C; /* AI-generated */
+  --khej-neutral-900: #2B2B2B; /* AI-generated */
+
+  /* text */
+  --khej-text-50: #F7F6F2; /* AI-generated */
+  --khej-text-100: #ECEAE3; /* AI-generated */
+  --khej-text-200: #DAD6CC; /* AI-generated */
+  --khej-text-300: #B8B3A7; /* AI-generated */
+  --khej-text-400: #969086; /* AI-generated */
+  --khej-text-500: #7A756C; /* AI-generated */ /* @primary */
+  --khej-text-600: #5E5A54; /* AI-generated */
+  --khej-text-700: #44403C; /* AI-generated */
+  --khej-text-800: #353230; /* AI-generated */
+  --khej-text-900: #2B2B2B; /* AI-generated */
+
+  /* success */
+  --khej-success-50: #F0F7F3; /* AI-generated */
+  --khej-success-100: #D5EBDD; /* AI-generated */
+  --khej-success-200: #A8D6B8; /* AI-generated */
+  --khej-success-300: #73BA91; /* AI-generated */
+  --khej-success-400: #4A9D72; /* AI-generated */
+  --khej-success-500: #3D8A62; /* AI-generated */ /* @primary */
+  --khej-success-600: #317252; /* AI-generated */
+  --khej-success-700: #2A5C44; /* AI-generated */
+  --khej-success-800: #234838; /* AI-generated */
+  --khej-success-900: #1A362B; /* AI-generated */
+
+  /* warning */
+  --khej-warning-50: #FDF8ED; /* AI-generated */
+  --khej-warning-100: #F9EBCC; /* AI-generated */
+  --khej-warning-200: #F0D494; /* AI-generated */
+  --khej-warning-300: #E5B558; /* AI-generated */
+  --khej-warning-400: #DB9A2E; /* AI-generated */
+  --khej-warning-500: #C8850F; /* AI-generated */ /* @primary */
+  --khej-warning-600: #A86D0B; /* AI-generated */
+  --khej-warning-700: #885508; /* AI-generated */
+  --khej-warning-800: #6A4107; /* AI-generated */
+  --khej-warning-900: #4D3005; /* AI-generated */
+
+  /* error */
+  --khej-error-50: #FDF2F2; /* AI-generated */
+  --khej-error-100: #F9DCDB; /* AI-generated */
+  --khej-error-200: #F0B5B2; /* AI-generated */
+  --khej-error-300: #E58783; /* AI-generated */
+  --khej-error-400: #DB6260; /* AI-generated */
+  --khej-error-500: #C53D3D; /* AI-generated */ /* @primary */
+  --khej-error-600: #A53030; /* AI-generated */
+  --khej-error-700: #842525; /* AI-generated */
+  --khej-error-800: #681C1C; /* AI-generated */
+  --khej-error-900: #4A1414; /* AI-generated */
+
+  /* info */
+  --khej-info-50: #EDF6F5; /* AI-generated */
+  --khej-info-100: #D1E9E6; /* AI-generated */
+  --khej-info-200: #A5D3CC; /* AI-generated */
+  --khej-info-300: #70B8AD; /* AI-generated */
+  --khej-info-400: #4A9E92; /* AI-generated */
+  --khej-info-500: #3D887E; /* AI-generated */ /* @primary */
+  --khej-info-600: #347068; /* AI-generated */
+  --khej-info-700: #2B5954; /* AI-generated */
+  --khej-info-800: #234644; /* AI-generated */
+  --khej-info-900: #1A3434; /* AI-generated */
+
+  /* === Short Aliases (Layer 2) === */
+  --bg: var(--khej-surface-100); /* AI-generated */
+  --fg: var(--khej-text-900); /* AI-generated */
+  --muted: var(--khej-text-400); /* AI-generated */
+  --accent: var(--khej-primary-500); /* AI-generated */
+  --accent-hover: var(--khej-primary-600); /* AI-generated */
+  --rule: var(--khej-neutral-200); /* AI-generated */
+  --link: var(--khej-accent-500); /* AI-generated */
+  --surface: var(--khej-surface-100); /* AI-generated */
+  --surface-dim: var(--khej-surface-200); /* AI-generated */
+  --surface-container-low: var(--khej-surface-50); /* AI-generated */
+  --surface-container: var(--khej-surface-100); /* AI-generated */
+  --surface-container-high: var(--khej-surface-200); /* AI-generated */
+  --surface-container-highest: var(--khej-surface-300); /* AI-generated */
+  --error: var(--khej-error-500); /* AI-generated */
+  --error-container: var(--khej-error-50); /* AI-generated */
+  --on-error: #ffffff; /* AI-generated */
+  --on-error-container: var(--khej-error-900); /* AI-generated */
+
+  /* === Typography === */
+  --font-display: 'Noto Serif SC', serif; /* AI-generated */
+  --font-heading: 'Noto Serif SC', serif; /* AI-generated */
+  --font-body: 'Noto Sans SC', sans-serif; /* AI-generated */
+  --font-mono: 'Noto Sans SC', monospace; /* AI-generated */
+
+  --font-size-display: 56px; /* AI-generated */
+  --font-size-h1: 40px; /* AI-generated */
+  --font-size-h2: 32px; /* AI-generated */
+  --font-size-h3: 24px; /* AI-generated */
+  --font-size-h4: 20px; /* AI-generated */
+  --font-size-body: 16px; /* AI-generated */
+  --font-size-lead: 18px; /* AI-generated */
+  --font-size-caption: 12px; /* AI-generated */
+  --font-size-mono: 14px; /* AI-generated */
+
+  --font-weight-display: 700; /* AI-generated */
+  --font-weight-h1: 700; /* AI-generated */
+  --font-weight-h2: 600; /* AI-generated */
+  --font-weight-h3: 600; /* AI-generated */
+  --font-weight-h4: 600; /* AI-generated */
+  --font-weight-body: 400; /* AI-generated */
+  --font-weight-lead: 400; /* AI-generated */
+  --font-weight-caption: 400; /* AI-generated */
+  --font-weight-mono: 400; /* AI-generated */
+
+  --line-height-display: 1.1; /* AI-generated */
+  --line-height-h1: 1.2; /* AI-generated */
+  --line-height-h2: 1.25; /* AI-generated */
+  --line-height-h3: 1.3; /* AI-generated */
+  --line-height-h4: 1.4; /* AI-generated */
+  --line-height-body: 1.6; /* AI-generated */
+  --line-height-lead: 1.7; /* AI-generated */
+  --line-height-caption: 1.5; /* AI-generated */
+  --line-height-mono: 1.6; /* AI-generated */
+
+  /* === Spacing === */
+  --space-1: 4px; /* AI-generated */
+  --space-2: 8px; /* AI-generated */
+  --space-3: 12px; /* AI-generated */
+  --space-4: 16px; /* AI-generated */
+  --space-5: 24px; /* AI-generated */
+  --space-6: 32px; /* AI-generated */
+  --space-7: 48px; /* AI-generated */
+  --space-8: 64px; /* AI-generated */
+
+  /* === Sizing === */
+  --size-icon-sm: 16px; /* AI-generated */
+  --size-icon-md: 20px; /* AI-generated */
+  --size-icon-lg: 24px; /* AI-generated */
+  --size-button-sm: 32px; /* AI-generated */
+  --size-button-md: 40px; /* AI-generated */
+  --size-button-lg: 48px; /* AI-generated */
+  --size-input-height: 36px; /* AI-generated */
+
+  /* === Border Radius === */
+  --radius-sm: 2px; /* AI-generated */
+  --radius-md: 4px; /* AI-generated */
+  --radius-lg: 8px; /* AI-generated */
+  --radius-xl: 12px; /* AI-generated */
+  --radius-pill: 9999px; /* AI-generated */
+
+  /* === Shadows === */
+  --shadow-1: 0 1px 2px rgba(43,43,43,.04), 0 1px 1px rgba(43,43,43,.02); /* Subtle border emphasis */
+  --shadow-2: 0 2px 6px rgba(43,43,43,.06), 0 1px 3px rgba(43,43,43,.03); /* Card rest */
+  --shadow-3: 0 4px 12px rgba(43,43,43,.08); /* Card hover */
+  --shadow-4: 0 8px 24px rgba(43,43,43,.10); /* Float / dropdown */
+  --shadow-5: 0 16px 40px rgba(43,43,43,.14); /* Modal / overlay */
+
+  /* ============================================
+     SEMANTIC ALIAS LAYER
+     ============================================ */
+  --color-background: var(--bg);
+  --color-foreground: var(--fg);
+  --color-surface: var(--surface);
+  --color-surface-dim: var(--surface-dim);
+  --color-surface-variant: var(--surface-container-high);
+  --color-surface-container: var(--surface-container);
+  --color-surface-container-low: var(--surface-container-low);
+  --color-surface-container-high: var(--surface-container-high);
+  --color-surface-container-highest: var(--surface-container-highest);
+  --color-card: var(--surface);
+  --color-on-surface: var(--fg);
+  --color-on-surface-variant: var(--muted);
+  --color-muted-foreground: var(--muted);
+  --color-primary: var(--accent);
+  --color-primary-hover: var(--accent-hover);
+  --color-on-primary: #ffffff;
+  --color-primary-container: var(--khej-primary-50);
+  --color-on-primary-container: var(--khej-primary-900);
+  --color-secondary: var(--khej-neutral-200);
+  --color-secondary-container: var(--khej-neutral-100);
+  --color-on-secondary-container: var(--khej-neutral-800);
+  --color-error: var(--error);
+  --color-error-container: var(--error-container);
+  --color-on-error: var(--on-error);
+  --color-on-error-container: var(--on-error-container);
+  --color-outline: var(--rule);
+  --color-outline-variant: var(--khej-neutral-100);
+  --color-border: var(--rule);
+  --color-success: var(--khej-success-600);
+  --color-warning: var(--khej-warning-600);
+  --font-family-base: var(--font-body);
+}
+
+/* === Dark Theme === */
+.dark {
+  --bg: #1A1917; /* AI-generated */
+  --fg: #E8E5DC; /* AI-generated */
+  --muted: #9A9590; /* AI-generated */
+  --accent: var(--khej-primary-400); /* AI-generated */
+  --accent-hover: var(--khej-primary-300); /* AI-generated */
+  --rule: #33312B; /* AI-generated */
+  --link: var(--khej-accent-300); /* AI-generated */
+  --surface: #222019; /* AI-generated */
+  --surface-dim: #1A1917; /* AI-generated */
+  --surface-container-low: #2A2823; /* AI-generated */
+  --surface-container: #33312B; /* AI-generated */
+  --surface-container-high: #3D3A33; /* AI-generated */
+  --surface-container-highest: #48453D; /* AI-generated */
+  --error: var(--khej-error-400); /* AI-generated */
+  --error-container: var(--khej-error-900); /* AI-generated */
+  --on-error: #ffffff; /* AI-generated */
+  --on-error-container: var(--khej-error-100); /* AI-generated */
+  --shadow-1: 0 1px 2px rgba(0,0,0,.15), 0 1px 1px rgba(0,0,0,.08); /* Subtle border emphasis */
+  --shadow-2: 0 2px 6px rgba(0,0,0,.20), 0 1px 3px rgba(0,0,0,.10); /* Card rest */
+  --shadow-3: 0 4px 12px rgba(0,0,0,.25); /* Card hover */
+  --shadow-4: 0 8px 24px rgba(0,0,0,.30); /* Float / dropdown */
+  --shadow-5: 0 16px 40px rgba(0,0,0,.35); /* Modal / overlay */
+}
+
+/* === Typography Classes === */
+.khej-display { font-family: var(--font-display); font-size: 3.5rem; font-weight: var(--font-weight-display); line-height: var(--line-height-display); letter-spacing: -0.02em; }
+.khej-h1 { font-family: var(--font-heading); font-size: 2.5rem; font-weight: var(--font-weight-h1); line-height: var(--line-height-h1); }
+.khej-h2 { font-family: var(--font-heading); font-size: 2rem; font-weight: var(--font-weight-h2); line-height: var(--line-height-h2); }
+.khej-h3 { font-family: var(--font-heading); font-size: 1.5rem; font-weight: var(--font-weight-h3); line-height: var(--line-height-h3); }
+.khej-h4 { font-family: var(--font-heading); font-size: 1.25rem; font-weight: var(--font-weight-h4); line-height: var(--line-height-h4); }
+.khej-body { font-family: var(--font-body); font-size: 1rem; font-weight: var(--font-weight-body); line-height: var(--line-height-body); }
+.khej-lead { font-family: var(--font-body); font-size: 1.125rem; font-weight: var(--font-weight-lead); line-height: var(--line-height-lead); }
+.khej-caption { font-family: var(--font-body); font-size: 0.75rem; font-weight: var(--font-weight-caption); line-height: var(--line-height-caption); }
+.khej-mono { font-family: var(--font-mono); font-size: 0.875rem; font-weight: var(--font-weight-mono); line-height: var(--line-height-mono); }

@@ -1,0 +1,113 @@
+{
+  "readOrder": [
+    {
+      "step": 1,
+      "file": "README.md",
+      "purpose": "Brand context, content fundamentals, visual foundations — read first for full understanding"
+    },
+    {
+      "step": 2,
+      "file": "css.json",
+      "purpose": "Structured token source for programmatic consumption (colors, spacing, radius, shadows, typography)"
+    },
+    {
+      "step": 3,
+      "file": "colors_and_type.css",
+      "purpose": "Drop-in runtime CSS variables — link this file, do not parse for token understanding when css.json exists"
+    },
+    {
+      "step": 4,
+      "file": "components/index.json",
+      "purpose": "Component index with slugs, categories, variants, and cross-component patterns"
+    },
+    {
+      "step": 5,
+      "file": "uikit-plan.json",
+      "purpose": "Component whitelist and UIKit screen blueprint — constrains which components to render"
+    },
+    {
+      "step": 6,
+      "file": "components.css",
+      "purpose": "Aggregated component CSS extracted from preview pages — runtime styling source"
+    },
+    {
+      "step": 7,
+      "file": "preview/component-button.html",
+      "purpose": "Button preview — first DOM/CSS source for button rendering"
+    },
+    {
+      "step": 7,
+      "file": "preview/component-card.html",
+      "purpose": "Card preview — first DOM/CSS source for card rendering"
+    },
+    {
+      "step": 7,
+      "file": "preview/component-input.html",
+      "purpose": "Input preview — first DOM/CSS source for input rendering"
+    },
+    {
+      "step": 7,
+      "file": "preview/component-navigation.html",
+      "purpose": "Navigation preview — first DOM/CSS source for navigation rendering"
+    },
+    {
+      "step": 7,
+      "file": "preview/component-modal.html",
+      "purpose": "Modal preview — first DOM/CSS source for modal rendering"
+    },
+    {
+      "step": 7,
+      "file": "preview/component-tag.html",
+      "purpose": "Tag preview — first DOM/CSS source for tag rendering"
+    },
+    {
+      "step": 8,
+      "file": "components/button.json",
+      "purpose": "Button component contract — intent, variants, and states"
+    },
+    {
+      "step": 8,
+      "file": "components/card.json",
+      "purpose": "Card component contract — intent, variants, and states"
+    },
+    {
+      "step": 8,
+      "file": "components/input.json",
+      "purpose": "Input component contract — intent, variants, and states"
+    },
+    {
+      "step": 8,
+      "file": "components/navigation.json",
+      "purpose": "Navigation component contract — intent, variants, and states"
+    },
+    {
+      "step": 8,
+      "file": "components/modal.json",
+      "purpose": "Modal component contract — intent, variants, and states"
+    },
+    {
+      "step": 8,
+      "file": "components/tag.json",
+      "purpose": "Tag component contract — intent, variants, and states"
+    },
+    {
+      "step": 9,
+      "file": "SKILL.md",
+      "purpose": "Agent skill manifest — quick-reference essentials and file navigation"
+    },
+    {
+      "step": 10,
+      "file": "library-consumption.json",
+      "purpose": "This file — recommended downstream read order"
+    }
+  ],
+  "componentResolution": {
+    "priority": ["preview/component-{slug}.html", "components/{slug}.json"],
+    "note": "Preview HTML is the first DOM/CSS source; component JSON provides intent, variants, and states."
+  },
+  "tokenResolution": {
+    "understanding": "css.json",
+    "runtime": "colors_and_type.css",
+    "note": "Use css.json to understand tokens programmatically; link colors_and_type.css at runtime."
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 2,
+  "name": "Modal",
+  "category": "overlay",
+  "sourceKind": "from-scratch",
+  "confidence": "medium",
+  "variantCount": 2,
+  "semanticTypeCandidates": [
+    {
+      "type": "Modal",
+      "evidence": "dialog overlay"
+    }
+  ],
+  "variantDimensions": [
+    {
+      "name": "variant",
+      "values": [
+        "dialog",
+        "scroll-overlay"
+      ]
+    }
+  ],
+  "representativeVariants": [
+    {
+      "id": "dialog",
+      "whySelected": "Centered dialog with parchment styling",
+      "traits": {
+        "variant": "dialog"
+      },
+      "childrenDigest": [
+        "title",
+        "body",
+        "action buttons"
+      ],
+      "visualSpecs": {
+        "bg": "var(--color-card)",
+        "fg": "var(--color-on-surface)",
+        "radius": "var(--radius-md)",
+        "shadow": "var(--shadow-4)",
+        "overlay": "rgba(43,43,43,0.6)"
+      }
+    },
+    {
+      "id": "scroll-overlay",
+      "whySelected": "Full-width overlay for scroll content",
+      "traits": {
+        "variant": "scroll-overlay"
+      },
+      "childrenDigest": [
+        "title",
+        "long content"
+      ],
+      "visualSpecs": {
+        "bg": "var(--color-surface)",
+        "fg": "var(--color-on-surface)",
+        "radius": "var(--radius-lg)",
+        "shadow": "var(--shadow-5)",
+        "overlay": "rgba(43,43,43,0.7)"
+      }
+    }
+  ],
+  "anatomy": [
+    "backdrop",
+    "container",
+    "header",
+    "body",
+    "footer"
+  ],
+  "structurePatterns": [
+    "centered",
+    "full-width"
+  ],
+  "usageHints": {
+    "priorityHint": "medium",
+    "context": "confirmations, detail views, content expansion"
+  },
+  "doNotInvent": [
+    "bottom sheet",
+    "side drawer",
+    "popover"
+  ],
+  "unknowns": [],
+  "keyInsightSeed": "Dialog with warm parchment background and ink-dark overlay",
+  "slug": "modal"
+}

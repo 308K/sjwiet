@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 2,
+  "name": "Card",
+  "category": "container",
+  "sourceKind": "from-scratch",
+  "confidence": "medium",
+  "variantCount": 3,
+  "semanticTypeCandidates": [
+    {
+      "type": "Card",
+      "evidence": "content container with elevation"
+    }
+  ],
+  "variantDimensions": [
+    {
+      "name": "variant",
+      "values": [
+        "elevated",
+        "outlined",
+        "parchment"
+      ]
+    },
+    {
+      "name": "padding",
+      "values": [
+        "compact",
+        "spacious"
+      ]
+    }
+  ],
+  "representativeVariants": [
+    {
+      "id": "elevated-spacious",
+      "whySelected": "Standard card with parchment background",
+      "traits": {
+        "variant": "elevated",
+        "padding": "spacious"
+      },
+      "childrenDigest": [
+        "title",
+        "body text"
+      ],
+      "visualSpecs": {
+        "bg": "var(--color-card)",
+        "fg": "var(--color-on-surface)",
+        "radius": "var(--radius-md)",
+        "shadow": "var(--shadow-2)"
+      }
+    },
+    {
+      "id": "outlined-compact",
+      "whySelected": "Minimal outlined card for dense info",
+      "traits": {
+        "variant": "outlined",
+        "padding": "compact"
+      },
+      "childrenDigest": [
+        "title",
+        "body text"
+      ],
+      "visualSpecs": {
+        "bg": "transparent",
+        "fg": "var(--color-on-surface)",
+        "radius": "var(--radius-md)",
+        "border": "1px solid var(--color-outline-variant)"
+      }
+    },
+    {
+      "id": "parchment-spacious",
+      "whySelected": "Paper texture feel, 计白当黑 whitespace",
+      "traits": {
+        "variant": "parchment",
+        "padding": "spacious"
+      },
+      "childrenDigest": [
+        "title",
+        "body text"
+      ],
+      "visualSpecs": {
+        "bg": "var(--color-surface)",
+        "fg": "var(--color-on-surface)",
+        "radius": "var(--radius-md)",
+        "shadow": "var(--shadow-1)"
+      }
+    }
+  ],
+  "anatomy": [
+    "header",
+    "body",
+    "footer"
+  ],
+  "structurePatterns": [
+    "stacked",
+    "grid"
+  ],
+  "usageHints": {
+    "priorityHint": "high",
+    "context": "content blocks, article cards, scroll sections"
+  },
+  "doNotInvent": [
+    "horizontal card scroll",
+    "card with media gallery"
+  ],
+  "unknowns": [],
+  "keyInsightSeed": "Parchment card with generous whitespace as scroll-section content unit",
+  "slug": "card"
+}

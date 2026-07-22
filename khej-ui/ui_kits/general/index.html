@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khej UI — 东方美学设计系统</title>
+<link rel="stylesheet" href="../../colors_and_type.css">
+<link rel="stylesheet" href="../../components.css">
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+<style>
+/* Page layer — UIKit layout classes only */
+.uikit-shell{width:100%;max-width:1184px;margin:0 auto;overflow:hidden;display:grid;grid-template-columns:var(--uikit-sidebar-w,220px) minmax(0,1fr);gap:0;min-height:100vh;background:var(--color-background);font-family:var(--font-family-base);color:var(--color-foreground)}
+.uikit-sidebar,.uikit-main,.uikit-toolbar{min-width:0}
+.uikit-sidebar{background:var(--color-surface);border-right:1px solid var(--color-outline-variant);display:flex;flex-direction:column;overflow:hidden;max-width:100%}
+.uikit-main{padding:var(--space-7) var(--space-8);overflow-y:auto;background:var(--color-background)}
+[data-component]{min-width:0;max-width:100%;overflow:hidden}
+.uikit-truncate{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.uikit-nowrap{white-space:nowrap;flex-shrink:0}
+.uikit-responsive-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-5)}
+.sidebar-brand{padding:var(--space-5) var(--space-4);border-bottom:1px solid var(--color-outline-variant)}
+.sidebar-brand h2{font-family:var(--font-heading);font-size:var(--font-size-h4);font-weight:var(--font-weight-h4);margin:0;color:var(--color-foreground);letter-spacing:0.02em}
+.sidebar-brand p{font-size:var(--font-size-caption);color:var(--color-muted-foreground);margin:var(--space-1) 0 0}
+.sidebar-nav{flex:1;padding:var(--space-3) 0}
+.sidebar-nav-item{display:flex;align-items:center;gap:var(--space-2);padding:var(--space-2) var(--space-4);font-size:var(--font-size-body);color:var(--color-on-surface-variant);cursor:pointer;border:none;background:none;transition:color .15s,background .15s;white-space:nowrap;width:100%;text-align:left;font-family:var(--font-family-base)}
+.sidebar-nav-item:hover{color:var(--color-primary);background:var(--color-surface-container-low)}
+.sidebar-nav-item.active{color:var(--color-primary);font-weight:500}
+.sidebar-nav-item.active::before{content:'';position:absolute;left:0;top:4px;bottom:4px;width:2px;background:var(--color-primary)}
+.screen-hero{padding:var(--space-8) 0}
+.screen-hero h1{font-family:var(--font-heading);font-size:var(--font-size-display);font-weight:var(--font-weight-display);line-height:var(--line-height-display);color:var(--color-foreground);margin:0 0 var(--space-3)}
+.screen-hero .lead{font-size:var(--font-size-lead);line-height:var(--line-height-lead);color:var(--color-on-surface-variant);max-width:560px;margin:0 0 var(--space-6)}
+.seal-row{display:flex;gap:var(--space-3);align-items:center;flex-wrap:wrap;margin-top:var(--space-5)}
+.screen-section{margin-bottom:var(--space-7)}
+.screen-section h2{font-family:var(--font-heading);font-size:var(--font-size-h2);font-weight:var(--font-weight-h2);line-height:var(--line-height-h2);color:var(--color-foreground);margin:0 0 var(--space-2)}
+.screen-section h3{font-family:var(--font-heading);font-size:var(--font-size-h3);font-weight:var(--font-weight-h3);line-height:var(--line-height-h3);color:var(--color-foreground);margin:0 0 var(--space-3)}
+.section-desc{font-size:var(--font-size-body);color:var(--color-on-surface-variant);margin:0 0 var(--space-5);max-width:640px}
+.component-row{display:flex;gap:var(--space-4);align-items:flex-start;flex-wrap:wrap;margin-bottom:var(--space-5)}
+.component-row label{font-size:var(--font-size-caption);color:var(--color-muted-foreground);width:100%;margin-bottom:var(--space-1);display:block}
+.token-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:var(--space-3)}
+.token-swatch{border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--color-outline-variant)}
+.token-swatch .swatch-color{height:64px}
+.token-swatch .swatch-label{padding:var(--space-2);font-size:var(--font-size-caption);color:var(--color-on-surface-variant);background:var(--color-surface)}
+.token-swatch .swatch-label span{display:block;font-family:var(--font-mono);font-size:10px;color:var(--color-muted-foreground);margin-top:2px}
+.type-demo h1,.type-demo h2,.type-demo h3,.type-demo h4,.type-demo p{margin:0 0 var(--space-3)}
+.modal-trigger-area{position:relative;width:100%;height:260px;border-radius:var(--radius-md);overflow:hidden;background:var(--color-surface-dim)}
+@media(max-width:900px){.uikit-shell{grid-template-columns:minmax(0,1fr)}.uikit-sidebar{display:none}.uikit-responsive-grid{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:640px){.uikit-main{padding:var(--space-4)}.uikit-responsive-grid{grid-template-columns:minmax(0,1fr)}.component-row{flex-direction:column}}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const {useState,useEffect,useCallback} = React;
+
+/* ── Icon helper ── */
+function Ic({name,size=20}){return <i data-lucide={name} style={{width:size+'px',height:size+'px',display:'inline-block',flexShrink:0}}></i>;}
+
+/* ── Sidebar ── */
+function Sidebar({active,onChange}){
+  const items=[{id:'hero',label:'卷首',icon:'scroll-text'},{id:'components',label:'组件一览',icon:'layout-grid'},{id:'tokens',label:'色彩与字体',icon:'palette'}];
+  return (<aside className="uikit-sidebar">
+    <div className="sidebar-brand"><h2>Khej UI</h2><p>东方美学设计系统</p></div>
+    <nav className="sidebar-nav">{items.map(it=><button key={it.id} className={`sidebar-nav-item${active===it.id?' active':''}`} style={{position:'relative'}} onClick={()=>onChange(it.id)}><Ic name={it.icon} size={18}/><span>{it.label}</span></button>)}</nav>
+  </aside>);
+}
+
+/* ── Hero Screen ── */
+function HeroScreen({onNav}){
+  return (<div className="screen-hero">
+    <h1>计白当黑<br/>留白为美</h1>
+    <p className="lead">Khej UI 是一套根植于东方美学的界面设计系统。以水墨留白的克制、朱红印章的权威、古典卷轴的韵律，构建兼具文化深度与现代可用性的产品界面。</p>
+    <div className="seal-row" data-component="button">
+      <button className="btn btn-stamp btn-lg" data-component="button" onClick={()=>onNav('components')}>钤印入门</button>
+      <button className="btn btn-secondary btn-md" data-component="button">阅读文档</button>
+      <button className="btn btn-ghost btn-md" data-component="button">了解更多</button>
+      <button className="btn btn-primary btn-md" data-component="button" disabled>敬请期待</button>
+    </div>
+    <div className="screen-section" style={{marginTop:'var(--space-7)'}}>
+      <div className="uikit-responsive-grid">
+        <div className="card parchment" data-component="card">
+          <div className="card-header"><h3 className="card-title">设计理念</h3></div>
+          <div className="card-body"><p>每一处空白都是对内容的尊重，让界面呼吸自然。东方美学的核心在于克制与留白——不多一物，不少一分。</p></div>
+        </div>
+        <div className="card elevated" data-component="card">
+          <div className="card-header"><h3 className="card-title">关于我们</h3></div>
+          <div className="card-body"><p>Khej UI 致力于打造优雅且高效的界面设计系统，融合东方美学与现代交互范式，为产品赋予独特的文化气质。</p></div>
+        </div>
+      </div>
+    </div>
+  </div>);
+}
+
+/* ── Component Screen ── */
+function ComponentScreen(){
+  return (<div>
+    <div className="screen-section">
+      <h2>按钮</h2>
+      <p className="section-desc">四种变体呈现不同的交互层级，朱红主色按钮承载核心操作，印章按钮（钤印）是品牌的标志性元素。</p>
+      <div className="component-row" data-component="button">
+        <label>主要 / 次要 / 幽灵</label>
+        <button className="btn btn-primary btn-md" data-component="button">确认</button>
+        <button className="btn btn-secondary btn-md" data-component="button">取消</button>
+        <button className="btn btn-ghost btn-md" data-component="button">了解更多</button>
+      </div>
+      <div className="component-row" data-component="button">
+        <label>印章（钤印）</label>
+        <button className="btn btn-stamp btn-sm" data-component="button">钤印</button>
+        <button className="btn btn-stamp btn-md" data-component="button">钤印</button>
+        <button className="btn btn-stamp btn-lg" data-component="button">钤印</button>
+      </div>
+      <div className="component-row" data-component="button">
+        <label>尺寸对比</label>
+        <button className="btn btn-primary btn-sm" data-component="button">小号按钮</button>
+        <button className="btn btn-primary btn-md" data-component="button">中号按钮</button>
+        <button className="btn btn-primary btn-lg" data-component="button">大号按钮</button>
+      </div>
+    </div>
+
+    <div className="screen-section">
+      <h2>卡片</h2>
+      <p className="section-desc">纸质卡片承载内容，留白为美。悬停时微微压暗，如指尖轻触纸面。</p>
+      <div className="uikit-responsive-grid">
+        <div className="card elevated" data-component="card">
+          <div className="card-header"><h3 className="card-title">提升卡片</h3></div>
+          <div className="card-body"><p>标准阴影提升，适用于主要内容区块。背景色取自温暖的宣纸色调。</p></div>
+          <div className="card-footer"><span className="tag tag-sm tag-seal" data-component="tag">Khej</span></div>
+        </div>
+        <div className="card outlined" data-component="card">
+          <div className="card-header"><h3 className="card-title">轮廓卡片</h3></div>
+          <div className="card-body"><p>以细线勾勒边界，无阴影。适用于信息密度较高的列表场景。</p></div>
+          <div className="card-footer"><span className="tag tag-sm tag-default" data-component="tag">草稿</span></div>
+        </div>
+        <div className="card parchment" data-component="card">
+          <div className="card-header"><h3 className="card-title">纸质卡片</h3></div>
+          <div className="card-body"><p>最轻的阴影，模拟手工纸的自然纹理。用于大面积内容展示区域。</p></div>
+          <div className="card-footer"><span className="tag tag-sm tag-accent" data-component="tag">认证</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div className="screen-section">
+      <h2>输入框</h2>
+      <p className="section-desc">下划线输入框模拟毛笔落纸的笔触基线，聚焦时以朱红色标示。</p>
+      <div className="component-row">
+        <div className="input-group input-underlined" data-component="input">
+          <label>用户名</label>
+          <input className="input-field" type="text" placeholder="请输入用户名" defaultValue="墨染"/>
+          <span className="helper">6-20个字符</span>
+        </div>
+        <div className="input-group input-underlined error" data-component="input">
+          <label>密码</label>
+          <input className="input-field" type="text" placeholder="请输入密码" defaultValue="123"/>
+          <span className="helper">密码长度不足，至少需要8位</span>
+        </div>
+      </div>
+      <div className="component-row">
+        <div className="input-group input-filled" data-component="input">
+          <label>搜索</label>
+          <input className="input-field" type="text" placeholder="输入关键词搜索"/>
+          <span className="helper">用于账户安全验证</span>
+        </div>
+      </div>
+    </div>
+
+    <div className="screen-section">
+      <h2>标签</h2>
+      <p className="section-desc">方印标签是品牌最易辨识的微元素，朱红填充色唤起传统印章的权威感。</p>
+      <div className="component-row" data-component="tag">
+        <label>印章标签</label>
+        <span className="tag tag-md tag-seal" data-component="tag">Khej</span>
+        <span className="tag tag-md tag-seal" data-component="tag">认证</span>
+        <span className="tag tag-md tag-seal" data-component="tag">官方</span>
+        <span className="tag tag-md tag-seal tag-disabled" data-component="tag">已过期</span>
+      </div>
+      <div className="component-row" data-component="tag">
+        <label>默认 / 强调</label>
+        <span className="tag tag-sm tag-default" data-component="tag">设计方案</span>
+        <span className="tag tag-sm tag-default" data-component="tag">待审核</span>
+        <span className="tag tag-sm tag-accent" data-component="tag">新版</span>
+        <span className="tag tag-sm tag-accent" data-component="tag">推荐</span>
+      </div>
+    </div>
+
+    <div className="screen-section">
+      <h2>导航</h2>
+      <p className="section-desc">垂直标签导航右对齐，呼应传统的右起左行阅读习惯；水平导航以底线指示当前项。</p>
+      <div style={{display:'grid',gridTemplateColumns:'200px 1fr',gap:'var(--space-5)',alignItems:'start'}}>
+        <div data-component="navigation">
+          <label style={{fontSize:'var(--font-size-caption)',color:'var(--color-muted-foreground)',display:'block',marginBottom:'var(--space-2)'}}>垂直标签</label>
+          <nav className="nav-v">
+            <button className="nav-v-item active">概述</button>
+            <button className="nav-v-item">参数</button>
+            <button className="nav-v-item">示例</button>
+            <button className="nav-v-item">变更记录</button>
+          </nav>
+        </div>
+        <div data-component="navigation">
+          <label style={{fontSize:'var(--font-size-caption)',color:'var(--color-muted-foreground)',display:'block',marginBottom:'var(--space-2)'}}>水平导航</label>
+          <nav className="nav-h">
+            <button className="nav-h-item active">全部</button>
+            <button className="nav-h-item">进行中</button>
+            <button className="nav-h-item">已完成</button>
+            <button className="nav-h-item">已归档</button>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <div className="screen-section">
+      <h2>弹窗</h2>
+      <p className="section-desc">温暖纸质背景上的对话框，以墨色半透明遮罩营造沉浸感。</p>
+      <div className="uikit-responsive-grid">
+        <div>
+          <label style={{fontSize:'var(--font-size-caption)',color:'var(--color-muted-foreground)',display:'block',marginBottom:'var(--space-2)'}}>标准对话框</label>
+          <div className="modal-demo" data-component="modal">
+            <div className="modal-backdrop backdrop-dialog"></div>
+            <div className="modal" data-component="modal">
+              <div className="modal-header">
+                <h4 className="modal-title">确认操作</h4>
+                <button className="modal-close"><i data-lucide="x" style={{width:16,height:16}}></i></button>
+              </div>
+              <div className="modal-body"><p style={{margin:0}}>确定要继续执行此操作吗？此更改将无法撤销。</p></div>
+              <div className="modal-footer">
+                <button className="btn btn-ghost btn-sm">取消</button>
+                <button className="btn btn-primary btn-sm">确认</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <label style={{fontSize:'var(--font-size-caption)',color:'var(--color-muted-foreground)',display:'block',marginBottom:'var(--space-2)'}}>宽幅弹窗</label>
+          <div className="modal-demo" data-component="modal">
+            <div className="modal-backdrop backdrop-scroll"></div>
+            <div className="modal wide" data-component="modal">
+              <div className="modal-header">
+                <h4 className="modal-title">服务详情</h4>
+                <button className="modal-close"><i data-lucide="x" style={{width:16,height:16}}></i></button>
+              </div>
+              <div className="modal-body"><p style={{margin:0}}>提供定制化设计系统搭建、组件库开发与视觉审计服务。我们的团队深谙东方美学与现代交互设计的融合之道，为每一个项目注入独特的文化气质。</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>);
+}
+
+/* ── Token Screen ── */
+function TokenScreen(){
+  const primaryColors=[{name:'primary-50',hex:'#FDF2F2'},{name:'primary-100',hex:'#F9DEDE'},{name:'primary-200',hex:'#F0B8B8'},{name:'primary-500',hex:'#C53D43'},{name:'primary-700',hex:'#8A2428'},{name:'primary-900',hex:'#4A1215'}];
+  const accentColors=[{name:'accent-50',hex:'#EEF2FA'},{name:'accent-200',hex:'#ADC1E8'},{name:'accent-500',hex:'#3457A5'},{name:'accent-700',hex:'#21366C'},{name:'accent-900',hex:'#111D3A'}];
+  const surfaceColors=[{name:'surface-50',hex:'#FAFAF7'},{name:'surface-100',hex:'#F5F4F0'},{name:'surface-200',hex:'#EAE8E0'},{name:'surface-300',hex:'#D8D4C8'},{name:'surface-500',hex:'#A8A08E'},{name:'surface-900',hex:'#35322C'}];
+  const semanticColors=[{name:'success-500',hex:'#3D8A62'},{name:'warning-500',hex:'#C8850F'},{name:'error-500',hex:'#C53D3D'},{name:'info-500',hex:'#3D887E'}];
+  function Swatches({colors,title}){return (<div className="screen-section"><h3>{title}</h3><div className="token-grid">{colors.map(c=><div className="token-swatch" key={c.name}><div className="swatch-color" style={{background:c.hex}}></div><div className="swatch-label">{c.name}<span>{c.hex}</span></div></div>)}</div></div>);}
+  return (<div>
+    <div className="screen-section">
+      <h2>色彩体系</h2>
+      <p className="section-desc">以朱砂红为主色、靛蓝为辅色，搭配温暖的宣纸中性色，构建具有东方韵味的色彩层次。</p>
+    </div>
+    <Swatches colors={primaryColors} title="主色 · 朱砂"/>
+    <Swatches colors={accentColors} title="辅色 · 靛蓝"/>
+    <Swatches colors={surfaceColors} title="表面 · 宣纸"/>
+    <Swatches colors={semanticColors} title="语义色"/>
+    <div className="screen-section">
+      <h2>字体系统</h2>
+      <p className="section-desc">宋体（Noto Serif SC）用于标题，黑体（Noto Sans SC）用于正文，兼具书法韵味与阅读舒适度。</p>
+      <div className="type-demo" style={{background:'var(--color-surface)',borderRadius:'var(--radius-md)',padding:'var(--space-5)',border:'1px solid var(--color-outline-variant)'}}>
+        <h1 className="khej-display" style={{marginBottom:'var(--space-4)'}}>大漠孤烟直</h1>
+        <h2 className="khej-h1">长河落日圆</h2>
+        <h3 className="khej-h2">明月松间照</h3>
+        <h4 className="khej-h3">清泉石上流</h4>
+        <p className="khej-body" style={{color:'var(--color-on-surface-variant)'}}>Khej UI 的字体系统以宋体与黑体为核心，前者提供书法般的笔触质感和东方美学的视觉锚点，后者确保正文与小字号场景下的清晰可读性。Display 字号（56px/700）用于卷首大标题，H1（40px）至 H4（20px）逐级递减，正文保持 16px/1.6 的舒适行距。</p>
+        <p className="khej-lead" style={{color:'var(--color-on-surface-variant)'}}>引言文字以 18px/1.7 排列，为阅读提供充裕的呼吸空间。</p>
+        <p className="khej-caption" style={{color:'var(--color-muted-foreground)'}}>Caption 标签文字 12px — 用于辅助说明与时间戳</p>
+      </div>
+    </div>
+    <div className="screen-section">
+      <h2>圆角与阴影</h2>
+      <div className="uikit-responsive-grid">
+        <div style={{display:'flex',flexDirection:'column',gap:'var(--space-3)'}}>
+          {[['--radius-sm','2px'],['--radius-md','4px'],['--radius-lg','8px'],['--radius-xl','12px']].map(([v,s])=><div key={v} style={{display:'flex',alignItems:'center',gap:'var(--space-3)'}}><div style={{width:48,height:48,borderRadius:v,background:'var(--color-surface-container-high)',border:'1px solid var(--color-outline-variant)',flexShrink:0}}></div><span style={{fontSize:'var(--font-size-caption)',color:'var(--color-muted-foreground)'}}>{v} ({s})</span></div>)}
+          <div style={{display:'flex',alignItems:'center',gap:'var(--space-3)'}}><div style={{width:48,height:48,borderRadius:'var(--radius-pill)',background:'var(--color-primary)',flexShrink:0}}></div><span style={{fontSize:'var(--font-size-caption)',color:'var(--color-muted-foreground)'}}>--radius-pill (印章专属)</span></div>
+        </div>
+        <div style={{display:'flex',flexDirection:'column',gap:'var(--space-3)'}}>
+          {[{n:'shadow-1',v:'var(--shadow-1)'},{n:'shadow-2',v:'var(--shadow-2)'},{n:'shadow-3',v:'var(--shadow-3)'},{n:'shadow-4',v:'var(--shadow-4)'}].map(s=><div key={s.n} style={{display:'flex',alignItems:'center',gap:'var(--space-3)'}}><div style={{width:64,height:40,borderRadius:'var(--radius-md)',background:'var(--color-card)',boxShadow:s.v,flexShrink:0}}></div><span style={{fontSize:'var(--font-size-caption)',color:'var(--color-muted-foreground)'}}>{s.n}</span></div>)}
+        </div>
+      </div>
+    </div>
+  </div>);
+}
+
+/* ── App ── */
+function App(){
+  const [screen,setScreen]=useState('hero');
+  useEffect(()=>{lucide.createIcons();});
+  const renderScreen=()=>{
+    switch(screen){
+      case 'hero': return <HeroScreen onNav={setScreen}/>;
+      case 'components': return <ComponentScreen/>;
+      case 'tokens': return <TokenScreen/>;
+      default: return <HeroScreen onNav={setScreen}/>;
+    }
+  };
+  return (<div className="uikit-shell" data-layout-guard="uikit-v1" style={{"--uikit-sidebar-w":"220px"}}>
+    <Sidebar active={screen} onChange={setScreen}/>
+    <main className="uikit-main">{renderScreen()}</main>
+  </div>);
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>

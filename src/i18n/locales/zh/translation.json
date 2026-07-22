@@ -1,0 +1,107 @@
+{
+  "app": {
+    "name": "Sjwiet",
+    "intro": "实时时频谱、音高、共振峰与音强分析，帮助你以科学的方式聆听并塑造自己的声音。所有处理均在本地完成，音频不会离开你的设备。",
+    "resources": "相关资源"
+  },
+  "nav": {
+    "practice": "练习",
+    "analysis": "分析",
+    "settings": "设置"
+  },
+  "actions": {
+    "startMic": "开始麦克风",
+    "stopMic": "停止麦克风",
+    "openFile": "导入音频文件",
+    "stopFile": "停止播放",
+    "dropHint": "拖拽音频文件到此处，或",
+    "browse": "点击选择文件",
+    "fileTypes": "支持WAV / MP3 / OGG / FLAC等常见格式",
+    "changeLanguage": "切换语言",
+    "toggleTheme": "切换明暗主题",
+    "fullscreen": "全屏查看",
+    "exitFullscreen": "退出全屏"
+  },
+  "status": {
+    "engineLoading": "正在加载声学分析引擎…",
+    "engineReady": "分析引擎已就绪",
+    "engineError": "分析引擎加载失败",
+    "micIdle": "麦克风未开启",
+    "micLive": "麦克风采集中",
+    "micDenied": "麦克风权限被拒绝，请在浏览器设置中允许访问",
+    "filePlaying": "正在分析文件",
+    "fileDecoding": "正在解码音频…",
+    "fileError": "无法读取该音频文件",
+    "analyzing": "分析中",
+    "voiced": "检测到发声",
+    "unvoiced": "未检测到稳定发声"
+  },
+  "spectrum": {
+    "title": "时频谱",
+    "subtitle": "时间 × 频率 × 能量滚动视图（Hz），叠加音高 / F1 / F2 / 音强曲线",
+    "paused": "已暂停",
+    "live": "实时",
+    "toggleOverlay": "显示/隐藏{{name}}"
+  },
+  "metrics": {
+    "pitch": "音高",
+    "formant1": "共振峰F1",
+    "formant2": "共振峰F2",
+    "formant3": "共振峰F3",
+    "formant": "共振峰",
+    "intensity": "音强",
+    "inRange": "在目标区间内",
+    "outRange": "偏离目标区间",
+    "noSignal": "暂无信号"
+  },
+  "history": {
+    "title": "音高曲线",
+    "subtitle": "最近30秒的音高轨迹与目标区间",
+    "empty": "开始练习后，这里将绘制你的音高轨迹"
+  },
+  "targets": {
+    "title": "练习目标",
+    "subtitle": "设定你的目标区间，分析将以此为参照",
+    "pitchMin": "音高下限(Hz)",
+    "pitchMax": "音高上限(Hz)",
+    "formant1Target": "F1目标(Hz)",
+    "formant2Target": "F2目标(Hz)",
+    "presets": "常用预设",
+    "preset": {
+      "fem": "女性化参考",
+      "masc": "男性化参考",
+      "androgynous": "中性参考"
+    }
+  },
+  "practice": {
+    "title": "练习反馈",
+    "subtitle": "基于实时声学参数的练习建议",
+    "score": "稳定度评分",
+    "scoreHint": "统计最近发声中落在目标区间内的比例",
+    "feedback": {
+      "pitchIn": "音高稳定落在目标区间内，保持当前的发声位置。",
+      "pitchLow": "音高偏低：尝试抬高喉位、缩小口腔纵向空间，从滑音练习缓慢上行。",
+      "pitchHigh": "音高偏高：放松喉部，让声音回落到更舒适的位置。",
+      "resonanceLow": "共振偏低：共鸣偏胸腔。试着把共鸣位置前移，想象声音从面部前方发出。",
+      "resonanceHigh": "共振偏高：共鸣位置很好，可以继续保持口腔前部的聚焦感。",
+      "intensityLow": "音量偏小：增加气息支持，让声音更稳定地送出。",
+      "intensityHigh": "音量偏大：不必用力喊，稳定的中等音量更利于控制音色。",
+      "unvoiced": "暂时没有检测到稳定的发声。可以尝试持续发「啊——」或「咿——」。",
+      "idle": "开启麦克风或导入音频文件，开始你的练习。"
+    }
+  },
+  "file": {
+    "analyzed": "文件分析完成",
+    "duration": "时长",
+    "meanPitch": "平均音高",
+    "meanF1": "平均F1",
+    "meanF2": "平均F2",
+    "meanIntensity": "平均音强",
+    "voicedRatio": "发声占比",
+    "reanalyze": "重新分析"
+  },
+  "lang": {
+    "zh": "中文",
+    "en": "English"
+  }
+}

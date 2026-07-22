@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 2,
+  "name": "Navigation",
+  "category": "navigation",
+  "sourceKind": "from-scratch",
+  "confidence": "medium",
+  "variantCount": 2,
+  "semanticTypeCandidates": [
+    {
+      "type": "Navigation",
+      "evidence": "page/tab navigation component"
+    }
+  ],
+  "variantDimensions": [
+    {
+      "name": "variant",
+      "values": [
+        "vertical-tab",
+        "scroll-nav"
+      ]
+    }
+  ],
+  "representativeVariants": [
+    {
+      "id": "vertical-tab",
+      "whySelected": "Right-side vertical tab for vertical reading flow",
+      "traits": {
+        "variant": "vertical-tab"
+      },
+      "childrenDigest": [
+        "tab items"
+      ],
+      "visualSpecs": {
+        "bg": "var(--color-surface)",
+        "fg": "var(--color-on-surface-variant)",
+        "activeFg": "var(--color-primary)",
+        "border": "none",
+        "radius": "0"
+      }
+    },
+    {
+      "id": "scroll-nav",
+      "whySelected": "Horizontal scroll nav for scroll-style pages",
+      "traits": {
+        "variant": "scroll-nav"
+      },
+      "childrenDigest": [
+        "nav items"
+      ],
+      "visualSpecs": {
+        "bg": "var(--color-surface)",
+        "fg": "var(--color-on-surface-variant)",
+        "activeFg": "var(--color-primary)",
+        "borderBottom": "1px solid var(--color-outline-variant)",
+        "radius": "0"
+      }
+    }
+  ],
+  "anatomy": [
+    "nav item",
+    "active indicator"
+  ],
+  "structurePatterns": [
+    "vertical",
+    "horizontal"
+  ],
+  "usageHints": {
+    "priorityHint": "high",
+    "context": "page navigation, section tabs, scroll sections"
+  },
+  "doNotInvent": [
+    "breadcrumb",
+    "dropdown menu",
+    "sidebar navigation"
+  ],
+  "unknowns": [],
+  "keyInsightSeed": "Vertical tab navigation aligned to right edge, following 右起左行 reading",
+  "slug": "navigation"
+}

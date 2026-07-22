@@ -1,0 +1,107 @@
+{
+  "app": {
+    "name": "Sjwiet",
+    "intro": "Real-time spectrogram, pitch, formant and intensity analysis to help you hear and shape your voice with intention. Everything runs locally — your audio never leaves your device.",
+    "resources": "Resources"
+  },
+  "nav": {
+    "practice": "Practice",
+    "analysis": "Analysis",
+    "settings": "Settings"
+  },
+  "actions": {
+    "startMic": "Start microphone",
+    "stopMic": "Stop microphone",
+    "openFile": "Import audio file",
+    "stopFile": "Stop playback",
+    "dropHint": "Drop an audio file here, or",
+    "browse": "browse files",
+    "fileTypes": "WAV / MP3 / OGG / FLAC and other common formats",
+    "changeLanguage": "Change language",
+    "toggleTheme": "Toggle color theme",
+    "fullscreen": "View fullscreen",
+    "exitFullscreen": "Exit fullscreen"
+  },
+  "status": {
+    "engineLoading": "Loading the acoustic analysis engine…",
+    "engineReady": "Analysis engine ready",
+    "engineError": "Failed to load the analysis engine",
+    "micIdle": "Microphone is off",
+    "micLive": "Microphone is live",
+    "micDenied": "Microphone access denied. Please allow it in your browser settings.",
+    "filePlaying": "Analyzing file",
+    "fileDecoding": "Decoding audio…",
+    "fileError": "Could not read this audio file",
+    "analyzing": "Analyzing",
+    "voiced": "Voicing detected",
+    "unvoiced": "No stable voicing detected"
+  },
+  "spectrum": {
+    "title": "Spectrogram",
+    "subtitle": "Scrolling time × frequency × energy view (Hz) with pitch / F1 / F2 / intensity overlays",
+    "paused": "Paused",
+    "live": "Live",
+    "toggleOverlay": "Show or hide {{name}}"
+  },
+  "metrics": {
+    "pitch": "Pitch",
+    "formant1": "Formant F1",
+    "formant2": "Formant F2",
+    "formant3": "Formant F3",
+    "formant": "Formant",
+    "intensity": "Intensity",
+    "inRange": "Within target range",
+    "outRange": "Outside target range",
+    "noSignal": "No signal yet"
+  },
+  "history": {
+    "title": "Pitch contour",
+    "subtitle": "Your pitch trajectory over the last 30 seconds against the target zone",
+    "empty": "Start practicing and your pitch trajectory will appear here"
+  },
+  "targets": {
+    "title": "Practice targets",
+    "subtitle": "Define your target ranges — analysis is measured against them",
+    "pitchMin": "Pitch floor (Hz)",
+    "pitchMax": "Pitch ceiling (Hz)",
+    "formant1Target": "F1 target (Hz)",
+    "formant2Target": "F2 target (Hz)",
+    "presets": "Common presets",
+    "preset": {
+      "fem": "Feminine reference",
+      "masc": "Masculine reference",
+      "androgynous": "Androgynous reference"
+    }
+  },
+  "practice": {
+    "title": "Practice feedback",
+    "subtitle": "Live coaching based on your acoustic parameters",
+    "score": "Stability score",
+    "scoreHint": "Share of recent voiced frames that landed inside your target range",
+    "feedback": {
+      "pitchIn": "Pitch is holding steadily inside your target range — keep this placement.",
+      "pitchLow": "Pitch is low: try raising larynx position slightly and glide upward slowly from a comfortable note.",
+      "pitchHigh": "Pitch is high: relax the throat and let the sound settle back to a more comfortable place.",
+      "resonanceLow": "Resonance sits low (chest-heavy). Bring the resonance forward — imagine the sound leaving from the front of the face.",
+      "resonanceHigh": "Resonance is nicely forward — keep that focus in the front of the mouth.",
+      "intensityLow": "Volume is low: support the sound with steadier breath so it carries further.",
+      "intensityHigh": "Volume is high: no need to push — a steady medium volume gives you more control over timbre.",
+      "unvoiced": "No stable voicing detected yet. Try sustaining “ah—” or “ee—”.",
+      "idle": "Start the microphone or import an audio file to begin practicing."
+    }
+  },
+  "file": {
+    "analyzed": "File analysis complete",
+    "duration": "Duration",
+    "meanPitch": "Mean pitch",
+    "meanF1": "Mean F1",
+    "meanF2": "Mean F2",
+    "meanIntensity": "Mean intensity",
+    "voicedRatio": "Voiced ratio",
+    "reanalyze": "Re-analyze"
+  },
+  "lang": {
+    "zh": "中文",
+    "en": "English"
+  }
+}
