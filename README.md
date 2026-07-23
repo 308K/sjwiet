@@ -156,7 +156,7 @@ Cross-Origin-Embedder-Policy: require-corp
 
 ## 设计系统（Khej UI）
 
-界面采用自研的 **Khej UI** 设计系统（东方美学：朱砂红主色 `#C53D43`、靛蓝点缀、宣纸暖灰背景、衬线/无衬线双字体、印章式交互），详见 [`khej-ui/README.md`](./khej-ui/README.md)。令牌（颜色 / 字体 / 间距 / 圆角 / 阴影）在 `khej-ui/colors_and_type.css` 与 `src/styles/` 中定义，并包含完整的 `.dark` 暗色覆盖。
+界面采用自研的 **Khej UI** 设计系统（东方美学：朱砂红主色 `#C53D43`、靛蓝点缀、宣纸暖灰背景、衬线/无衬线双字体、印章式交互），详见 [`khej-ui/README.md`](https://github.com/308K/khej-ui)。令牌（颜色 / 字体 / 间距 / 圆角 / 阴影）在 `khej-ui/colors_and_type.css` 与 `src/styles/` 中定义，并包含完整的 `.dark` 暗色覆盖。
 
 ---
 
