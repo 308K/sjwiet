@@ -1,0 +1,3 @@
+[submodule "khej-ui"]
+	path = khej-ui
+	url = https://github.com/308K/khej-ui.git
